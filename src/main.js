@@ -14,6 +14,13 @@ const mBooks = [{
   name: 'Harry potter', author: 'Jk Rowling', pages: 301, status: 'Done!',
 }];
 
+function Book(name, author, pages, status) {
+  this.name = name;
+  this.author = author;
+  this.pages = pages;
+  this.status = status;
+}
+
 function addTheBook() {
   const name = bookName.value;
   const author = bookAuthor.value;
@@ -23,17 +30,9 @@ function addTheBook() {
   mBooks.push(book);
 }
 
-function Book(name, author, pages, status) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-}
-
-
 function toggleStatus(status) {
-  if (status.target.classList.contains('status')){
-    if (status.target.textContent === 'Done!'){
+  if (status.target.classList.contains('status')) {
+    if (status.target.textContent === 'Done!') {
       status.target.textContent = 'Not yet!';
     } else {
       status.target.textContent = 'Done!';
@@ -63,7 +62,7 @@ function booksDispaly() {
         <p class="form-control text-white bg-info">Number of pages: ${a.pages}</p>
         <p class="form-control text-white bg-info"><a href="#" class="btn-warning px-2 py-1 rounded status">${a.status}</a></p>
       </div>`;
-  booksContainer.appendChild(card);
+    booksContainer.appendChild(card);
   });
 }
 function clearfield() {
@@ -87,7 +86,7 @@ submit.addEventListener('click', (b) => {
     booksDispaly();
     mainDiv.classList.remove('show');
     displayBooks.classList.remove('x');
-  } 
+  }
 });
 
 /* eslint-disable no-unused-vars */
