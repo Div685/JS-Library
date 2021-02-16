@@ -16,5 +16,9 @@
   flex-direction: column;
 }
 
+.display-books.x {
+  display: none;
+}
+
 
 
