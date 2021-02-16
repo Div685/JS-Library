@@ -4,33 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> 
 </head>
 <body>
   <div class="main-div ">
     <p class='errormessage'>Please enter all the inputs</p>
     <form class="main-form">
-      <div class="form-group">
+      <div class="form-group mt-5 mb-3">
         <button class='btn-danger cancel'>X</button>
         <label>Book Name</label>
         <input type="text" class="form-control" id="bookName" placeholder="Enter Book Name">
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label>Book Author</label>
         <input type="text" class="form-control" id="bookAuthor" placeholder="Enter Book Author">
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label>Number of Pages</label>
         <input type="number" class="form-control" id="pagesNumber" placeholder="Enter number of pages">
       </div>
-      <div class="form-group mt-2">
+      <div class="form-group mb-3">
         <label>Choose Status:</label>
         <select name="status" id="status">
           <option value="Done!">Done!</option>
           <option value="Not yet!">Not yet!</option>
         </select>
-        <button class="submit form-control">Submit</button>
+        <button class="submit mt-3 form-control">Submit</button>
       </div>
     </form>
   </div>
