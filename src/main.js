@@ -1,49 +1,31 @@
 const addBook = document.querySelector('.addbook');
 const mainDiv = document.querySelector('.main-div');
-const displayBook = document.querySelector('.display-book');
+const booksContainer = document.querySelector('.display-book');
 const displayBooks = document.querySelector('.display-books');
 const submit = document.querySelector('.submit');
 const bookName = document.getElementById('bookName');
 const bookAuthor = document.getElementById("bookAuthor");
 const pagesNumber = document.getElementById('pagesNumber')
 const statusRead = document.getElementById('status');
-const errorMessage = document.querySelector('.errormessage')
+const errorMessage = document.querySelector('.errormessage');
+const cancelForm = document.querySelector('.cancel');
 
-function getBook(){
-  let books; 
-  if(localStorage.getItem('books')=== null){
-    books = [];
-  }else{
-    books = JSON.parse(localStorage.getItem('books'));
-  }
+const mBooks = [{
+  name: 'Harry potter', author: 'Jk Rowling', pages: 301, status: 'Done!',
+}];
 
-  return books;
-}
-
-function AddBook() {
+function addTheBook() {
   const name = bookName.value;
   const author = bookAuthor.value;
   const pages = pagesNumber.value;
   const status = statusRead.value;
-  const book = new Book(name, author, pages, status); 
-  // myBooks.push(book);
-  const mbooks = getBook();
-  mbooks.push(book);
-  localStorage.setItem('books', JSON.stringify(mbooks));
-  // console.log(book)
-}
-
-// const mbooks = [{
-//   name: "Game of Thrones", author: "Martin som", pages: 301, status: "finnished"
-// },
-// {name: "Game of Thrones2", author: "Martin som", pages: 301, status: "finnished"}
-// ];
-
-const mbooks = [];
+  const book = new Book(name, author, pages, status);
+  mBooks.push(book);
+};
 
 function Book(name, author, pages, status) {
   this.name = name;
-  this.author =  author;
+  this.author = author;
   this.pages = pages;
   this.status = status;
 }
@@ -51,13 +33,18 @@ function Book(name, author, pages, status) {
 
 function toggleStatus(status){
   if(status.target.classList.contains('status')){
-    if(status.target.textContent === 'Read'){
-      status.target.textContent = 'Not Read'
+    if(status.target.textContent === 'Done!'){
+      status.target.textContent = 'Not yet!'
     }else {
-      status.target.textContent = 'Read'
+      status.target.textContent = 'Done!'
     }
   }
 }
+
+cancelForm.addEventListener('click', () => {
+  mainDiv.classList.remove('show');
+  displayBooks.classList.remove('x')
+});
 
 addBook.addEventListener('click', () => {
   mainDiv.classList.add('show');
@@ -65,20 +52,30 @@ addBook.addEventListener('click', () => {
 });
 
 function booksDispaly(){
-  // displayBook.innerHTML = ``;
-  const dBooks = getBook();
-  dBooks.forEach((a, index) => {
+  booksContainer.innerHTML = '';
+  
+  mBooks.forEach((a, index) => {
     const card = document.createElement('div');
-    card.innerHTML = `
-    <a href="#" class="delete text-danger" onclick="deleteBook(${index})" >X</a>
-      ${a.name} 
-      ${a.author}
-      ${a.pages}
-      ${a.status}  
-    `;
-    displayBook.appendChild(card);
+    card.className = 'col-12 text-center';
+    card.innerHTML = `<div class="card text-dark bg-white mb-3" >
+  <p class="form-control d-flex justify-content-between"><p class="bg-info px-2 py-1 text-white">${index + 1}</p><a href="#" class="delete text-danger" onclick="deleteBook(${index})" >X</a></p>
+  <p class="form-control text-white bg-info"> Book Name: ${a.name}</p>
+  <p class="form-control text-white bg-info">Author Name: ${a.author}</p>
+  <p class="form-control text-white bg-info">Number of pages: ${a.pages}</p>
+  <p class="form-control text-white bg-info"><a href="#" class="btn-warning px-2 py-1 rounded status">${a.status}</a></p>
+  </div>`;
+  booksContainer.appendChild(card);
   });
 }
+function clearfield() {
+  bookName.value = '';
+  bookAuthor.value = '';
+  pagesNumber.value = '';
+}
+
+window.addEventListener('DOMContentLoaded', booksDispaly);
+
+booksContainer.addEventListener('click', toggleStatus)
 
 submit.addEventListener('click', (b) => {
   b.preventDefault();
@@ -86,17 +83,15 @@ submit.addEventListener('click', (b) => {
     errorMessage.classList.add('show');
     setTimeout(() => errorMessage.classList.remove('show'),3000);
   } else {
-    AddBook();
+    addTheBook();
+    clearfield();
+    booksDispaly();
+    mainDiv.classList.remove('show');
+    displayBooks.classList.remove('x')
   } 
 });
 
-
 function deleteBook(index) {
-  mbooks.splice(index, 1);
+  mBooks.splice(index, 1);
   booksDispaly();
 }
-
-
-// booksDispaly();
-document.addEventListener('DOMContentLoaded', booksDispaly);
-

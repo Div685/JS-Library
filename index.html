@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> 
 </head>
 <body>
@@ -12,6 +12,7 @@
     <p class='errormessage'>Please enter all the inputs</p>
     <form class="main-form">
       <div class="form-group">
+        <button class='btn-danger cancel'>X</button>
         <label>Book Name</label>
         <input type="text" class="form-control" id="bookName" placeholder="Enter Book Name">
       </div>
@@ -26,8 +27,8 @@
       <div class="form-group mt-2">
         <label>Choose Status:</label>
         <select name="status" id="status">
-          <option value="Read">Read</option>
-          <option value="Not Read">Not Read</option>
+          <option value="Done!">Done!</option>
+          <option value="Not yet!">Not yet!</option>
         </select>
         <button class="submit form-control">Submit</button>
       </div>
@@ -44,7 +45,6 @@
     </div>
     <button class="addbook">Add Book</button>
     <div class="display-book">
-      
     </div>
   </div>
 
