@@ -1,6 +1,7 @@
 const addBook = document.querySelector('.addbook');
-const mainDiv = document.querySelector('.main-div')
-
+const mainDiv = document.querySelector('.main-div');
+const displayBook = document.querySelector('.display-book');
+const displayBooks = document.querySelector('.display-books');
 
 
 function Book() {
@@ -22,6 +23,33 @@ function Books(name, author, pages, status) {
   this.status = status;
 }
 
+
+function toggleStatus(status){
+  if(status.target.classList.contains('status')){
+    if(status.target.textContent === 'Read'){
+      status.target.textContent = 'Not Read'
+    }else {
+      status.target.textContent = 'Read'
+    }
+  }
+}
+
 addBook.addEventListener('click', () => {
   mainDiv.classList.add('show');
 });
+
+function booksDispaly(){
+  displayBook.innerHTML = ``;
+  myBooks.forEach((a, b) => {
+    const card = document.createElement('div');
+    card.innerHTML = `
+      ${a.name} 
+      ${a.author}
+      ${a.pages}
+      ${a.status}
+    `;
+    displayBook.appendChild(card);
+  });
+}
+
+booksDispaly();
