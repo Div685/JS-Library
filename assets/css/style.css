@@ -20,5 +20,17 @@
   display: none;
 }
 
+.errormessage {
+  color: white;
+  background-color: red;
+  display: none;
+}
+
+.errormessage.show {
+  display: block;
+}
+
+
+
 
 
