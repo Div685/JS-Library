@@ -8,6 +8,16 @@ const bookAuthor = document.getElementById("bookAuthor");
 const pagesNumber = document.getElementById('pagesNumber')
 const statusRead = document.getElementById('status');
 
+function getBook(){
+  let books; 
+  if(localStorage.getItem('books')=== null){
+    books = [];
+  }else{
+    books = JSON.parse(localStorage.getItem('books'));
+  }
+
+  return books;
+}
 
 function AddBook() {
   const name = bookName.value;
@@ -15,15 +25,18 @@ function AddBook() {
   const pages = pagesNumber.value;
   const status = statusRead.value;
   const book = new Book(name, author, pages, status); 
-  myBooks.push(book);
-  console.log(book)
+  // myBooks.push(book);
+  const mbooks = getBook();
+  mbooks.push(book);
+  localStorage.setItem('books', JSON.stringify(mbooks));
+  // console.log(book)
 }
 
-const myBooks = [{
-  name: "Game of Thrones", author: "Martin som", pages: 301, status: "finnished"
-},
-{name: "Game of Thrones2", author: "Martin som", pages: 301, status: "finnished"}
-];
+// const myBooks = [{
+//   name: "Game of Thrones", author: "Martin som", pages: 301, status: "finnished"
+// },
+// {name: "Game of Thrones2", author: "Martin som", pages: 301, status: "finnished"}
+// ];
 
 function Book(name, author, pages, status) {
   this.name = name;
@@ -49,8 +62,9 @@ addBook.addEventListener('click', () => {
 });
 
 function booksDispaly(){
-  displayBook.innerHTML = ``;
-  myBooks.forEach((a, b) => {
+  // displayBook.innerHTML = ``;
+  const dBooks = getBook();
+  dBooks.forEach((a, b) => {
     const card = document.createElement('div');
     card.innerHTML = `
       ${a.name} 
@@ -63,7 +77,10 @@ function booksDispaly(){
 }
 
 submit.addEventListener('click', (b) => {
+  // b.preventDefault();
   AddBook();
 })
 
-booksDispaly();
+// booksDispaly();
+document.addEventListener('DOMContentLoaded', booksDispaly);
+
