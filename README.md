@@ -3,9 +3,9 @@
 > A simple Library App, where the user can add books information and view the registered books. Developed using: HTML, CSS, and Javascript.
 
 
-### You can access a Live Demo [HERE]()
+### You can access a Live Demo [HERE](https://div685.github.io/JS-Library/)
 
-![Screenshot](./images/screencapture.png)
+![Screenshot](.assets/images/screencapture.png)
 
 ## Features Built
 
