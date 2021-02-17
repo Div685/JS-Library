@@ -54,8 +54,8 @@ function booksDispaly() {
   booksContainer.innerHTML = '';
   mBooks.forEach((a, index) => {
     const card = document.createElement('div');
-    card.className = 'col-12 text-center';
-    card.innerHTML = `<div class="card text-dark bg-white mb-3" >
+    card.className = 'col-4 text-center';
+    card.innerHTML = `<div class="card text-dark bg-white mb-3 p-3" >
         <p class="form-control d-flex justify-content-between"><p class="bg-info px-2 py-1 text-white">${index + 1}</p><a href="#" class="delete text-danger" onclick="deleteBook(${index})" >X</a></p>
         <p class="form-control text-white bg-info"> Book Name: ${a.name}</p>
         <p class="form-control text-white bg-info">Author Name: ${a.author}</p>

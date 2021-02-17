@@ -5,7 +5,7 @@
 
 ### You can access a Live Demo [HERE]()
 
-![Screenshot](./images/screenshot.png)
+![Screenshot](./images/screencapture.png)
 
 ## Features Built
 
@@ -51,7 +51,7 @@ To get a local copy up and running follow these simple steps.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/Div685/JS-Library/issues).
 
 
 ## Show your support
