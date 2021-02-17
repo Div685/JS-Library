@@ -27,11 +27,13 @@
 
 To get a local copy up and running follow these simple steps.
 
-- Clone this repository
+- [ ] Open your terminal
+- [ ]  Navigate to the directory where you will like to install the repo by running `cd FOLDER-NAME` 
+- [ ] Clone this repository
  > `git clone https://github.com/Div685/JS-Library.git`
-- Navigate to the Repo Folder
-- Use your favorite browser the index.html file (located at the root)
-- Warning: The registered book will disappear if the user reloads a page. Storing data was optional for this project.
+ - [ ] Open your browser
+ - [ ] Open library/index.html
+
 
  
 ## Authors
